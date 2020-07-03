@@ -1,5 +1,5 @@
 <template>
-	<div class='min-h-screen bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-xl sm:text-2xl md:text-3xl leading-relaxed'>
+	<div class='min-h-screen bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-2xl md:text-3xl leading-relaxed'>
 		<Nuxt />
 	</div>
 </template>
