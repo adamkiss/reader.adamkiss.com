@@ -20,8 +20,8 @@
 	@screen xl { .container { @apply max-w-3xl }}
 
 	.ignore-margin { @apply -mx-8 }
-	@screen md { .container { @apply -mx-16 }}
-	@screen lg { .container { @apply -mx-20 }}
+	@screen md { .ignore-margin { @apply -mx-16 }}
+	@screen lg { .ignore-margin { @apply -mx-20 }}
 
 	.caps {
 		font-variant-caps: small-caps
@@ -50,6 +50,11 @@
 		& ul li { @apply list-disc }
 		& ol li { @apply list-decimal }
 
-		& hr { @apply relative border border-gray-800 }
+		& hr { @apply relative border border-sepia-300 }
+		@screen dark { & hr { @apply border-gray-800 }}
 	}
+
+	.ignore-margin, .styled-html pre { @apply -mx-8 }
+	@screen md { .ignore-margin, .styled-html pre { @apply -mx-16 }}
+	@screen lg { .ignore-margin, .styled-html pre { @apply -mx-20 }}
 </style>
