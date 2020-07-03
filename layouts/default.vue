@@ -17,7 +17,11 @@
 	}
 	@screen md { .container { @apply px-16 }}
 	@screen lg { .container { @apply px-20 }}
-	@screen md { .container { @apply max-w-3xl }}
+	@screen xl { .container { @apply max-w-3xl }}
+
+	.ignore-margin { @apply -mx-8 }
+	@screen md { .container { @apply -mx-16 }}
+	@screen lg { .container { @apply -mx-20 }}
 
 	.caps {
 		font-variant-caps: small-caps
@@ -48,5 +52,4 @@
 
 		& hr { @apply relative border border-gray-800 }
 	}
-
 </style>

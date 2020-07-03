@@ -14,6 +14,8 @@
 		<div class="flex justify-center items-center px-8 py-16">
 			<nuxt-link to='/'>Back home</nuxt-link><span class='px-4 text-base'>◆</span><a :href='parsed.url' class='underline' target='_blank'>Visit original</a>
 		</div>
+
+		<ScrollToTop />
 	</div>
 </template>
 
