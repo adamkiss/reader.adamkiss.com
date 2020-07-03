@@ -9,7 +9,7 @@
 
 		<Reader :content="parsed.content" class='py-16' />
 
-		<hr class='border-gray-700' />
+		<hr class='border-sepia-200 dark:border-gray-700' />
 
 		<div class="flex justify-center items-center px-8 py-16">
 			<nuxt-link to='/'>Back home</nuxt-link><span class='px-4 text-base'>◆</span><a :href='parsed.url' class='underline' target='_blank'>Visit original</a>
@@ -26,9 +26,8 @@ export default {
 	middleware: ['validate-url', 'redirect-url'],
 
 	async asyncData({ $axios, params, error }) {
-		// dev: force localhost:3000
-		// const parsed = await $axios.$post('http://localhost:3000/api/default', {url: params.pathMatch})
 		const parsed = await $axios.$post('.netlify/functions/get', {provider: 'default', url: params.pathMatch})
+		// const parsed = await $axios.$get(`.netlify/functions/get?provider=default&url=${params.pathMatch}`)
 		return {
 			parsed
 		}
