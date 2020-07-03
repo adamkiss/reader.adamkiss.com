@@ -1,0 +1,22 @@
+{
+  "name": "reader.adamkiss.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
+  },
+  "dependencies": {
+    "@jbrayton/mercury-parser": "^2.2.21",
+    "@nuxt/components": "^1.0.6",
+    "@nuxtjs/axios": "^5.11.0",
+    "nuxt": "^2.13.0",
+    "tailwindcss-dark-mode": "^1.1.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^2.0.0"
+  }
+}
