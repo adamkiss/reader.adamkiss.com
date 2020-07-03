@@ -1,4 +1,9 @@
-const providers = ['default', 'ffnet', 'ao3', 'hpffa'].map(p => require(`../lib/provider-${p}`))
+const providers = {
+	default: require('../lib/provider-default'),
+	ffnet: require('../lib/provider-ffnet'),
+	ao3: require('../lib/provider-ao3'),
+	hpffa: require('../lib/provider-hpffa')
+}
 
 exports.handler = async (event, context) => {
 	try {
@@ -20,11 +25,11 @@ exports.handler = async (event, context) => {
 			}
 		}
 
-		const url = providers[req.provider].getRequestUrl(req.url)
+		const url = providers[req.provider].getRequestUrl(req)
 		const parsed = await providers[req.provider].get(url)
 		return {
 			statusCode: 200,
-			body: 'ya!'
+			body: JSON.stringify(parsed)
 		}
 	} catch (err) {
 		console.error(err)
