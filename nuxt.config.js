@@ -25,6 +25,14 @@ export default {
 			{ rel: 'stylesheet', href: 'https://use.typekit.net/bfh6ohn.css'}
 		]
 	},
+	loading: {
+		height: '10px'
+	},
+	loadingIndicator: {
+		name: 'chasing-dots',
+		background: '#15191c',
+		color: '#30373c'
+	},
 	/*
 	** Global CSS
 	*/
