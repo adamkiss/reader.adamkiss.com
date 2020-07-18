@@ -32,7 +32,7 @@ export default {
 		height: '10px'
 	},
 	loadingIndicator: {
-		name: 'chasing-dots',
+		name: 'rectangle-bounce',
 		background: '#15191c',
 		color: '#30373c'
 	},
