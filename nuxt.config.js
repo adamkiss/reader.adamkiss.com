@@ -17,7 +17,7 @@ export default {
 		htmlAttrs: {
 			style: 'background-color: #15191c'
 		},
-		title: process.env.npm_package_name || '',
+		title: '👓 Reader',
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },

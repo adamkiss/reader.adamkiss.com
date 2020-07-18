@@ -25,10 +25,18 @@ const isUrlValid = require('~/lib/is-valid-url')
 export default {
 	middleware: ['validate-url', 'redirect-url'],
 
+	data() {return {
+		pageTitle: '👓 Reader'
+	}},
+	head() {return {
+		title: this.pageTitle
+	}},
+
 	async asyncData({ $axios, params, error }) {
 		const parsed = await $axios.$post('.netlify/functions/get', {provider: 'default', url: params.pathMatch})
 		// const parsed = await $axios.$get(`.netlify/functions/get?provider=default&url=${params.pathMatch}`)
 		return {
+			pageTitle: `👓 ${parsed.title}`,
 			parsed
 		}
 	}
