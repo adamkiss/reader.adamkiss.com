@@ -14,6 +14,9 @@ export default {
 	** See https://nuxtjs.org/api/configuration-head
 	*/
 	head: {
+		htmlAttrs: {
+			style: 'background-color: #15191c'
+		},
 		title: process.env.npm_package_name || '',
 		meta: [
 			{ charset: 'utf-8' },
