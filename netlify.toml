@@ -5,5 +5,5 @@
 
 [[redirects]]
 	from = '/*'
-	to = '/200.html'
+	to = '/.netlify/functions/get'
 	status = 200
