@@ -18,6 +18,7 @@
 		"tailwindcss-dark-mode": "^1.1.4"
 	},
 	"devDependencies": {
+		"@nuxtjs/color-mode": "^1.0.0",
 		"@nuxtjs/tailwindcss": "^2.0.0"
 	}
 }

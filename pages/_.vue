@@ -21,14 +21,17 @@
 
 <script>
 const isUrlValid = require('~/lib/is-valid-url')
+const titleMixin = require('@/lib/title-mixin')
 
 export default {
 	middleware: ['validate-url', 'redirect-url'],
+	mixins: [titleMixin],
 
 	async asyncData({ $axios, params, error }) {
 		const parsed = await $axios.$post('.netlify/functions/get', {provider: 'default', url: params.pathMatch})
 		// const parsed = await $axios.$get(`.netlify/functions/get?provider=default&url=${params.pathMatch}`)
 		return {
+			pageTitle: parsed.title,
 			parsed
 		}
 	}

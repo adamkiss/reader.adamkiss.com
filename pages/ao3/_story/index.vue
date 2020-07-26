@@ -25,7 +25,10 @@
 </template>
 
 <script>
+const titleMixin = require('@/lib/title-mixin')
+
 export default {
+	mixins: [titleMixin],
 	async asyncData({ $axios, params, error }) {
 		const story = params.story
 
@@ -33,6 +36,7 @@ export default {
 		// const parsed = await $axios.$get(`.netlify/functions/get?provider=ffnet&story=${story}&chapter=${chapter}`)
 
 		return {
+			pageTitle: data.title,
 			story, ...data
 		}
 	}

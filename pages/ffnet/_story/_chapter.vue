@@ -41,7 +41,11 @@
 </template>
 
 <script>
+const titleMixin = require('@/lib/title-mixin')
+
 export default {
+	mixins: [titleMixin],
+
 	async asyncData({ $axios, params, error }) {
 		const story = params.story
 		const chapter = params.chapter
@@ -60,8 +64,11 @@ export default {
 			data.currentChapter.index = parseInt(data.currentChapter.index, 10)
 		}
 
+		console.log(data, chapter)
+
 		return {
-			story, chapter, ...data
+			story, chapter, ...data,
+			pageTitle: `${data.title}${data.oneshot ? '' : `, ${data.currentChapter.name}`}`,
 		}
 	},
 	computed: {

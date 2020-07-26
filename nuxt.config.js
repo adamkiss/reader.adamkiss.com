@@ -14,7 +14,10 @@ export default {
 	** See https://nuxtjs.org/api/configuration-head
 	*/
 	head: {
-		title: process.env.npm_package_name || '',
+		htmlAttrs: {
+			style: 'background-color: #15191c'
+		},
+		title: '👓 Reader',
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,6 +27,14 @@ export default {
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
 			{ rel: 'stylesheet', href: 'https://use.typekit.net/bfh6ohn.css'}
 		]
+	},
+	loading: {
+		height: '10px'
+	},
+	loadingIndicator: {
+		name: 'rectangle-bounce',
+		background: '#15191c',
+		color: '#30373c'
 	},
 	/*
 	** Global CSS
@@ -47,6 +58,7 @@ export default {
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/nuxt-tailwindcss
 		'@nuxtjs/tailwindcss',
+		'@nuxtjs/color-mode'
 	],
 	/*
 	** Nuxt.js modules
