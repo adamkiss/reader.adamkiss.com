@@ -1,13 +1,15 @@
-const providers = {
-	default: require('../lib/provider-default'),
-	ffnet: require('../lib/provider-ffnet'),
-	ao3: require('../lib/provider-ao3'),
-	hpffa: require('../lib/provider-hpffa')
-}
+// const providers = {
+// 	default: require('../lib/provider-default'),
+// 	ffnet: require('../lib/provider-ffnet'),
+// 	ao3: require('../lib/provider-ao3'),
+// 	hpffa: require('../lib/provider-hpffa')
+// }
 
 exports.handler = async (event, context) => {
 	try {
 		const req = JSON.parse(event.body)
+
+		console.log(req)
 
 		// Only allow POST
 		if (event.httpMethod !== 'POST') {
