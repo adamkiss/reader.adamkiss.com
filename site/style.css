@@ -1,4 +1,62 @@
 @tailwind base;
 @tailwind components;
 
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+	font-feature-settings: 'liga' 1, 'lnum' 1;
+}
+body {scroll-behavior: smooth}
+
+.container {
+	@apply px-8 max-w-2xl mx-auto
+}
+	@screen md { .container { @apply px-16 }}
+	@screen lg { .container { @apply px-20 }}
+	@screen xl { .container { @apply max-w-3xl }}
+
+.ignore-margin { @apply -mx-8 }
+@screen md { .ignore-margin { @apply -mx-16 }}
+@screen lg { .ignore-margin { @apply -mx-20 }}
+
+hr { @apply relative border border-sepia-300 }
+@screen dark { hr { @apply border-gray-800 }}
+
+.caps {
+	font-variant-caps: small-caps
+}
+
+.styled-html {
+	& h2, & h3, & h4 {
+		@apply font-semibold mt-6
+	}
+
+	& p, & ul, & ol, & blockquote, & figure, & hr, & pre {
+		& + p, & + ul, & + ol, & + blockquote, & + figure, & + hr, & + pre {
+			@apply mt-6
+		}
+	}
+
+	& a {
+		@apply text-sepia-900 underline;
+	}
+
+	& pre, & p > code {
+		@apply p-1 bg-blackop-20;
+		font-size: .6em;
+	}
+	& pre {
+		@apply overflow-scroll p-4
+	}
+	& em, & strong { @apply font-semibold }
+	& li { @apply pt-1 ml-4 }
+	& ul li { @apply list-disc }
+	& ol li { @apply list-decimal }
+}
+@screen dark { .styled-html a { @apply text-gray-100; }}
+
+.ignore-margin, .styled-html pre { @apply -mx-8 }
+@screen md { .ignore-margin, .styled-html pre { @apply -mx-16 }}
+@screen lg { .ignore-margin, .styled-html pre { @apply -mx-20 }}
+
 @tailwind utilities;
