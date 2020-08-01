@@ -11,6 +11,7 @@ module.exports = {
 		colors: {
 			black: '#111',
 			white: '#fafafa',
+			red: 'hsla(7, 61%, 44%, 1.00)', // it's called "well read!"
 			gray: {
 				100: '#EDEEEE',
 				200: '#D2D3D5',

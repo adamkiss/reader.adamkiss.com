@@ -25,4 +25,6 @@ export default function welcome ({router, store}) {
 		// $('#welcome-url').blur()
 		router.route(`/${store.welcome.get().url}`)
 	})
+
+	store.app.dispatch('setTitle', 'Welcome to Reader')
 }

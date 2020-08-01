@@ -14,3 +14,19 @@ export const isValid = url => {
 	}
 }
 
+import ky from "ky";
+import error from "../site/error.html"
+export const showOrFail = async ({store, args}) => {
+	try {
+		const result = await ky.post('/.netlify/functions/get', {json: args}).json();
+		console.log(result)
+		app(result.html)
+		store.app.dispatch('setTitle', result.title)
+	} catch (err) {
+		app(error)
+		$('#error-status').innerHTML = err.response.status
+		$('#error-message').innerHTML = err.response.statusText
+		store.app.dispatch('setTitle', `Reader: Error ${err.response.status}`)
+	}
+}
+

@@ -1,15 +1,14 @@
-// const providers = {
-// 	default: require('../lib/provider-default'),
-// 	ffnet: require('../lib/provider-ffnet'),
-// 	ao3: require('../lib/provider-ao3'),
-// 	hpffa: require('../lib/provider-hpffa')
-// }
+const nunjucks = require('nunjucks')
+const providers = {
+	default: require('../parsers/default.js'),
+	// ffnet: require('../lib/provider-ffnet'),
+	// ao3: require('../lib/provider-ao3'),
+	// hpffa: require('../lib/provider-hpffa')
+}
 
 exports.handler = async (event, context) => {
 	try {
 		const req = JSON.parse(event.body)
-
-		console.log(req)
 
 		// Only allow POST
 		if (event.httpMethod !== 'POST') {
@@ -29,9 +28,13 @@ exports.handler = async (event, context) => {
 
 		const url = providers[req.provider].getRequestUrl(req)
 		const parsed = await providers[req.provider].get(url)
+
+		nunjucks.configure({noCache: true})
+		const rendered = nunjucks.render(`./functions-templates/${req.provider}.njk`, parsed)
+
 		return {
 			statusCode: 200,
-			body: JSON.stringify(parsed)
+			body: JSON.stringify({title: parsed.title, html: rendered})
 		}
 	} catch (err) {
 		console.error(err)
