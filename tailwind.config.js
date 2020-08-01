@@ -33,10 +33,6 @@ module.exports = {
 				700: '#6A6140',
 				800: '#504830',
 				900: '#353020',
-			},
-			blackop: {
-				'20': 'rgba(0,0,0,.2)',
-				'40': 'rgba(0,0,0,.4)'
 			}
 		},
 		fontFamily: {
@@ -61,9 +57,5 @@ module.exports = {
 			'site/*.html',
 			'functions-templates/**/*.njk',
 		]
-	},
-	corePlugins: {
-		textOpacity: false,
-		backgroundOpacity: false
 	}
 }

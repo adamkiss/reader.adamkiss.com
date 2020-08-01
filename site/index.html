@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='min-h-screen'>
+<html class='min-h-screen bg-red'>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,11 @@
 	<link rel="stylesheet" href="./style.css">
 	<script src="../app/client.js" defer></script>
 </head>
-<body class="min-h-full py-2 bg-red">
-	<div id="app" class="min-h-full bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-2xl md:text-3xl leading-relaxed"></div>
+<body class="min-h-screen py-2 dark:bg-black dark:bg-opacity-75">
+	<div id="loader" class="fixed z-20 absolute-center transition-opacity ease-in-out duration-100 pointer-events-none">
+		<div class="absolute z-10 inset-0 animate-ping rounded-full bg-black bg-opacity-25"></div>
+		<div class="relative z-20 px-4 py-2 text-4xl rounded-full bg-black bg-opacity-25">📕</div>
+	</div>
+	<div id="app" class="min-h-full bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-2xl md:text-3xl leading-relaxed relative z-10"></div>
 </body>
 </html>

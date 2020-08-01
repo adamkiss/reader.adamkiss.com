@@ -1,0 +1,6 @@
+<article class="container py-16">
+	{% if headline %}
+		<h2 class="pb-4 text-center font-headline">{{ headline }}</h2>
+	{% endif %}
+	<div class="styled-html ">{{ content | safe }}</div>
+</article>

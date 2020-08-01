@@ -1,0 +1,14 @@
+<div class="container pt-8 pb-16" id="toc">
+	<h1>Table <em>of</em> Contents:</h1>
+	<ol class='list-none'>
+		{% for chapter in chapters %}
+			<li class='ml-6 pt-1'><a href='{{ chapter.link }}'>
+				{% if chapter.current %}
+					<b  class='text-bold text-sepia-600 dark:text-gray-600'>{{ chapter.name }}</b>
+				{% else %}
+					<span>{{ chapter.name }}</span>
+				{% endif %}
+			</a></li>
+		{% endfor %}
+	</ol>
+</div>

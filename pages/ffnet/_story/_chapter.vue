@@ -64,8 +64,6 @@ export default {
 			data.currentChapter.index = parseInt(data.currentChapter.index, 10)
 		}
 
-		console.log(data, chapter)
-
 		return {
 			story, chapter, ...data,
 			pageTitle: `${data.title}${data.oneshot ? '' : `, ${data.currentChapter.name}`}`,

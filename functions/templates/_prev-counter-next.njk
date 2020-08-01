@@ -1,0 +1,9 @@
+{{ macros.hr() }}
+<div class="py-2 sm:py-4 md:py-8 flex justify-center items-center">
+	{{ macros.button_or_span('←', prev) }}
+	<span class="rounded px-8 text-sepia-700 dark:text-gray-300 cursor-pointer js-scroll-to-toc">
+		<span class='font-bold text-sepia-800 dark:text-white'>{{ currentChapter.index }}</span>/{{ chapters.length }}<span> ▾</span>
+	</span>
+	{{ macros.button_or_span('→', next) }}
+</div>
+{{ macros.hr() }}

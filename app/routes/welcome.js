@@ -1,6 +1,6 @@
 import {createStoreon} from 'storeon'
 import html from '../../site/welcome.html'
-import {app, $, isValid} from '../utils'
+import {$app, $, isValid} from '../utils'
 import {on} from 'delegated-events'
 
 export default function welcome ({router, store}) {
@@ -8,8 +8,6 @@ export default function welcome ({router, store}) {
 		store.on('@init', () => ({url: ''}))
 		store.on('set', ({url}, setTo) => ({url: setTo}))
 	}])
-	app(html)
-
 	on('keyup', '#welcome-url', event => store.welcome.dispatch('set', event.target.value))
 	store.welcome.on('@changed', state => {
 		const $submit = $('#welcome-submit')
@@ -22,9 +20,10 @@ export default function welcome ({router, store}) {
 	})
 	on('submit', '#welcome-form', e => {
 		e.preventDefault()
-		// $('#welcome-url').blur()
 		router.route(`/${store.welcome.get().url}`)
 	})
 
+	$app(html)
 	store.app.dispatch('setTitle', 'Welcome to Reader')
+	store.app.dispatch('stopLoading')
 }

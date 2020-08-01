@@ -42,7 +42,7 @@ hr { @apply relative border border-sepia-300 }
 	}
 
 	& pre, & p > code {
-		@apply p-1 bg-blackop-20;
+		@apply p-1 bg-black bg-opacity-25;
 		font-size: .6em;
 	}
 	& pre {
@@ -58,5 +58,14 @@ hr { @apply relative border border-sepia-300 }
 .ignore-margin, .styled-html pre { @apply -mx-8 }
 @screen md { .ignore-margin, .styled-html pre { @apply -mx-16 }}
 @screen lg { .ignore-margin, .styled-html pre { @apply -mx-20 }}
+
+.absolute-center {
+	top: 40%; right: 50%;
+	transform: translate(50%, -50%);
+}
+
+.blurry-fuck {
+	filter: blur(10px)
+}
 
 @tailwind utilities;

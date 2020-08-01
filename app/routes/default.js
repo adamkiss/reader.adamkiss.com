@@ -1,4 +1,3 @@
-import ky from 'ky'
 import { showOrFail } from '../utils'
 
 const providers = [
@@ -27,18 +26,23 @@ const providers = [
 	}
 ]
 
-export default async function fallback({router, store, params}) {
+export default async function defaultRoute({router, store, params}) {
+	store.app.dispatch('startLoading')
+	let redirect
+
 	const url = params.wild
 	providers.forEach(provider => {
 		if (provider.match(url)) {
-			const newUrl = provider.getUrl(url)
-			store.app.dispatch('setTitle', `Redirecting to ${newUrl}…`)
-			router.route(newUrl)
+			redirect = provider.getUrl(url)
+			store.app.dispatch('setTitle', `Redirecting to ${redirect}…`)
+			router.route(redirect)
 		}
 	})
 
-	await showOrFail({
-		store,
-		args: { provider: 'default', url: url}
-	})
+	if (!redirect) {
+		await showOrFail({
+			store,
+			args: { provider: 'default', url: url}
+		})
+	}
 }

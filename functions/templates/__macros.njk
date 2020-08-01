@@ -1,0 +1,11 @@
+{% macro hr() %}
+	<hr class='border-sepia-200 dark:border-gray-700' />
+{% endmacro %}
+
+{% macro button_or_span(text, href=false) %}
+	{% if href %}
+		<a href='{{ href }}' class="rounded py-2 px-6 md:px-8 bg-white dark:bg-black dark:bg-opacity-50">{{ text }}</a>
+	{% else %}
+		<span class="rounded py-2 px-6 md:px-8 dark:bg-black dark:bg-opacity-25 text-sepia-500 dark:text-gray-500" >{{ text }}</span>
+	{% endif %}
+{% endmacro %}

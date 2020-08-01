@@ -12,6 +12,7 @@
 		"prod": "npm run build"
 	},
 	"dependencies": {
+		"@essentials/request-interval": "^1.2.0",
 		"@jbrayton/mercury-parser": "^2.2.21",
 		"delegated-events": "^1.1.2",
 		"got": "^11.5.1",
@@ -25,7 +26,8 @@
 		"cssnano": "^4.1.10",
 		"parcel-bundler": "^1.12.4",
 		"postcss": "^7.0.32",
-		"tailwindcss": "^1.5.2",
+		"postcss-nested": "^4.2.3",
+		"tailwindcss": "^1.6.0",
 		"tailwindcss-dark-mode": "^1.1.5"
 	}
 }
