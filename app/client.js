@@ -70,7 +70,7 @@ on('click', '#scroll-to-top', _ => window.scroll({
 	behavior: 'smooth'
 }))
 on('click', '.js-scroll-to-toc', _ => window.scroll({
-	top: $('#toc').scrollTop - 40,
+	top: $('#toc').offsetTop - 40,
 	left: 0,
 	behavior: 'smooth'
 }))
