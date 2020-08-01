@@ -50,5 +50,5 @@ This is just a short note for me to compile what I actually want this microapp t
 ### "Static", mostly functions based app
 - ~~[Swup](https://swup.js.org) or [Turbolinks](https://github.com/turbolinks/turbolinks) or Barba.js~~
 - ~~proxy all requests other than / to reader.html? Or straight to .functions?~~
-- just use one of the routers - lukeed/navaid
+- just use one of the routers ([navaid](https://github.com/lukeed/navaid))
 - single page - the index is loaded as a component as well. App working without JS is irrelevant now.
