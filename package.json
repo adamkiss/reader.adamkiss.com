@@ -9,9 +9,7 @@
 		"dev": "npm run start",
 		"start": "parcel site/index.html ",
 		"build": "NODE_ENV=production parcel build site/index.html --no-source-maps",
-		"export": "nuxt export",
-		"serve": "nuxt serve",
-		"prod": "nuxt build && nuxt export"
+		"prod": "npm run build"
 	},
 	"dependencies": {
 		"@jbrayton/mercury-parser": "^2.2.21",
