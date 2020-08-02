@@ -4,6 +4,22 @@
 	functions = 'functions/'
 
 [[redirects]]
-	from = '/*'
-	to = '/index.html'
+	from = "/ffnet/:story/:chapter?"
+	query = {reader = ":reader"}
+	to = "/.netlify/functions/:reader/:reader?story=:story&chapter=:chapter"
 	status = 200
+	force = false
+
+
+[[redirects]]
+	from = "/*"
+	query = {reader = ":reader"}
+	to = "/.netlify/functions/:reader/:reader"
+	status = 200
+	force = false
+
+[[redirects]]
+	from = "/*"
+	to = "/index.html"
+	status = 200
+	force = false
