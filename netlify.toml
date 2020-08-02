@@ -25,7 +25,7 @@
 
 [[redirects]]
 	from = "/ffnet/:story/:chapter"
-	to = "/.netlify/functions/ffnet/ffnet?reader&story=:story&chapter=:chapter"
+	to = "/.netlify/functions/ffnet/ffnet/:story/:chapter"
 	status = 200
 
 [[redirects]]
