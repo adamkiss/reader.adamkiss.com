@@ -8,7 +8,7 @@ const template = [
 	readFileSync('./dist/index.html')
 		.toString()
 		.replace(/<title.*?\/title>/g, '<title>${title}</title>')
-		.replace(/data-content="">/g, '>${content}'),
+		.replace(/(namespace="content">)[\s\S]*(<\/div>)[\s\S]*?<div data-content-end=""><\/div>/g, '$1$${content}$2'),
 		// .replace(/<div data-from[\s\S]*?data-to=""><\/div>/igm, '${content}'),
 	'`'
 ].join('')

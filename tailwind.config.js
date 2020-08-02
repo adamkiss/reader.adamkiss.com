@@ -43,6 +43,9 @@ module.exports = {
 			screens: {
 				dark: { raw: '(prefers-color-scheme: dark)' }
 			},
+			inset: {
+				'12': '3rem'
+			}
 		}
 	},
 	variants: {

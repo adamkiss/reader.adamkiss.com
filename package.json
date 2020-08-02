@@ -17,7 +17,9 @@
 		]
 	},
 	"dependencies": {
+		"@barba/core": "^2.9.7",
 		"@essentials/request-interval": "^1.2.0",
+		"@essentials/request-timeout": "^1.3.0",
 		"@jbrayton/mercury-parser": "^2.2.21",
 		"delegated-events": "^1.1.2",
 		"fake-lit": "^1.0.1",
