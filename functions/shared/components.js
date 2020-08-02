@@ -1,4 +1,4 @@
-const html = require('./fake-lit-html')
+const {html} = require('fake-lit')
 module.exports = {}
 
 
