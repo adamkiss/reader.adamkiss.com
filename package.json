@@ -6,13 +6,20 @@
 	"version": "1.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "npm run start",
-		"start": "parcel site/index.html",
+		"dev": "parcel site/index.html",
+		"start": "netlify dev",
 		"build": "NODE_ENV=production parcel build site/index.html --no-source-maps",
 		"serve": "serve dist/"
 	},
+	"shell": {
+		"onBuildEnd": [
+			"node copy.template.js"
+		]
+	},
 	"dependencies": {
+		"@barba/core": "^2.9.7",
 		"@essentials/request-interval": "^1.2.0",
+		"@essentials/request-timeout": "^1.3.0",
 		"@jbrayton/mercury-parser": "^2.2.21",
 		"delegated-events": "^1.1.2",
 		"fake-lit": "^1.0.1",
@@ -20,12 +27,15 @@
 		"ky": "^0.23.0",
 		"lit-html": "^1.2.1",
 		"navaid": "^1.1.1",
-		"storeon": "^3.0.3"
+		"storeon": "^3.0.3",
+		"swup": "^2.0.11",
+		"turbolinks": "^5.2.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "^9.8.5",
 		"cssnano": "^4.1.10",
 		"parcel-bundler": "^1.12.4",
+		"parcel-plugin-shell": "^1.0.0",
 		"postcss": "^7.0.32",
 		"postcss-nested": "^4.2.3",
 		"serve": "^11.3.2",

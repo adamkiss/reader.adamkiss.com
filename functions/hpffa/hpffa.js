@@ -1,28 +1,12 @@
 const parse = require('./parser')
 const template = require('./template')
+const layout = require('../shared/layout')
 
 exports.handler = async event => {
 	try {
-		const req = JSON.parse(event.body)
-		// bounce errors
-		if (event.httpMethod !== 'POST') {
-			return { statusCode: 405, body: 'Method Not Allowed', headers: { Allow: 'Get' }}
-		}
-		if (!'story' in req) {
-			return { statusCode: 400, body: 'Story # is missing' }
-		}
-
-		const parsed = await parse(req)
-		const rendered = template(parsed)
-		return {
-			statusCode: 200,
-			body: JSON.stringify({
-				title: parsed.title + (parsed.oneshot ? '' : `, ${parsed.currentChapter.name}`),
-				html: rendered
-			})
-		}
-
-
+		const parsed = await parse(event.queryStringParameters)
+		const title = parsed.title + (parsed.oneshot ? '' : `, ${parsed.currentChapter.name}`)
+		return { statusCode: 200, body: layout(title, template(parsed)) }
 	} catch (err) {
 		console.error(err)
 		return {statusCode: 500, body: err.message || err}

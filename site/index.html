@@ -3,17 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>📕</title>
+	<title>Welcome to Reader</title>
+	<link rel="preconnect" href="http://use.typekit.net">
 	<link rel="stylesheet" href="https://use.typekit.net/bfh6ohn.css">
 	<link rel="stylesheet" href="./style.css">
-	<script src="../app/client.js" defer></script>
+	<link rel="shortcut icon" href="favicon.png" type="image/png">
+	<script src="./app.js" defer></script>
 </head>
-<body class="min-h-screen py-2 dark:bg-black dark:bg-opacity-75">
-	<div id="loader" class="fixed z-20 absolute-center transition-opacity ease-in-out duration-100 pointer-events-none">
+<body class="min-h-screen py-2 dark:bg-black dark:bg-opacity-75" data-barba="wrapper">
+	<div id="loader" class="fixed z-20 right-12 top-12 transition-opacity ease-in-out duration-100 pointer-events-none opacity-0">
 		<div class="absolute z-10 inset-0 animate-ping rounded-full bg-black bg-opacity-25"></div>
-		<div class="relative z-20 px-4 py-2 text-4xl rounded-full bg-black bg-opacity-25">📕</div>
+		<div class="relative z-20 px-4 py-2 text-4xl rounded-full bg-black bg-opacity-25 emoji">📕</div>
 	</div>
-	<div id="app" class="min-h-full bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-2xl md:text-3xl leading-relaxed relative z-10"></div>
+	<div class="min-h-full bg-sepia-100 dark:bg-gray-900 text-sepia-700 dark:text-gray-200 antialiased font-text text-2xl md:text-3xl leading-relaxed relative z-10" data-barba="container" data-barba-namespace="content">
+		<form class="p-8 flex flex-col justify-center items-center relative h-screen" id="welcome-form">
+			<h1 class='pb-4 leading-none'><span style="font-size:.8em">📕</span> Reader</h1>
+			<input id="welcome-url"
+				class='mt-4 p-4 w-full rounded bg-white dark:bg-black dark:bg-opacity-50 border-2 border-sepia-300 dark:border-gray-700 focus:border-sepia-500 dark:focus:border-gray-500 outline-none'
+				type="text" name="url" autocomplete="off" />
+			<button id="welcome-submit" disabled="disabled"
+				class='mt-12 py-2 px-4 md:px-6 lg:px-8 rounded bg-sepia-400 dark:bg-black dark:bg-opacity-50 disabled:opacity-25 disabled:cursor-not-allowed'
+				type="submit">Read this page</button>
+			<hr class="w-1/3 border border-sepia-200 dark:border-gray-700 my-8" />
+			<p class='text-center'>Handy bookmarklet: <a
+					class='inline-block m-2 py-2 px-4 md:px-6 lg:px-8 rounded bg-sepia-400 dark:bg-black dark:bg-opacity-50'
+					href="javascript:(function()%7Bwindow.location%3D%22https%3A%2F%2Freader.adamkiss.com%2F%22%2Bwindow.location.href%7D)()">📕
+					Reader</a></p>
+			<!--
+				development version:
+				encodeURIComponent('function(){window.location="https://reader.adamkiss.com/"+window.location.href}')
+
+			-->
+		</form>
+	</div>
+	<div data-content-end></div>
 
 	<!-- purgecss -->
 	<div class='blurry-fuck opacity-0 landmark heading'></div>
