@@ -56,6 +56,9 @@ module.exports = {
 		content: [
 			'site/*.html',
 			'functions-templates/**/*.njk',
-		]
+		],
+		options: {
+			whitelistPatterns: [/styled-html/]
+		}
 	}
 }

@@ -18,10 +18,13 @@ const providers = [
 	}, { // HPFFA
 		match: url => url.includes('hpfanficarchive.com/stories/viewstory.php'),
 		getUrl: url => {
-			const sid = RegExp(/sid=(\d+)/).exec(url)
-			const chapter = RegExp(/chapter=(\d+)/).exec(url)
+			/* holy fuck balls */
+			const q = (new URL(document.location)).searchParams
+			const sid = q.get('sid')
+			const chapter = q.get('chapter')
+
 			if (!sid) return '/'
-			return `/hpffa/${sid[1]}/${chapter && chapter[1] || 1}`
+			return `/hpffa/${sid}/${chapter || 1}`
 		},
 	}
 ]

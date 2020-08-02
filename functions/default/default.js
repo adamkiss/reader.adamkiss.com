@@ -1,14 +1,12 @@
-const nunjucks = require('nunjucks')
-const {parse} = require('@jbrayton/mercury-parser')
-
-nunjucks.configure(`${__dirname}/templates`, { noCache: true })
+const template = require('./template.js')
+const parse = require('./parser.js')
 
 exports.handler = async (event, context) => {
 	try {
 		const req = JSON.parse(event.body)
 		// bounce errors
 		if (event.httpMethod !== 'POST') {
-			return { statusCode: 405, body: 'Method Not Allowed', headers: { Allow: 'Get' }}
+			return { statusCode: 405, body: 'Method Not Allowed', headers: { Allow: 'Get' } }
 		}
 		if (!'url' in req) {
 			return { statusCode: 400, body: 'URL is missing' }
@@ -16,7 +14,7 @@ exports.handler = async (event, context) => {
 
 
 		const parsed = await parse(req.url)
-		const rendered = nunjucks.render(`default.njk`, parsed)
+		const rendered = template(parsed)
 		return {
 			statusCode: 200,
 			body: JSON.stringify({ title: parsed.title, html: rendered })
@@ -25,6 +23,6 @@ exports.handler = async (event, context) => {
 
 	} catch (err) {
 		console.error(err)
-		return {statusCode: 500, body: err.message || err}
+		return { statusCode: 500, body: err.message || err }
 	}
 }

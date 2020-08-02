@@ -7,7 +7,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "npm run start",
-		"start": "parcel site/index.html ",
+		"start": "parcel site/index.html",
 		"build": "NODE_ENV=production parcel build site/index.html --no-source-maps",
 		"prod": "npm run build"
 	},
@@ -17,8 +17,8 @@
 		"delegated-events": "^1.1.2",
 		"got": "^11.5.1",
 		"ky": "^0.23.0",
+		"lit-html": "^1.2.1",
 		"navaid": "^1.1.1",
-		"nunjucks": "^3.2.2",
 		"storeon": "^3.0.3"
 	},
 	"devDependencies": {

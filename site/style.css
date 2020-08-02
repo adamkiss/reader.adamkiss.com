@@ -52,6 +52,7 @@ hr { @apply relative border border-sepia-300 }
 	& li { @apply pt-1 ml-4 }
 	& ul li { @apply list-disc }
 	& ol li { @apply list-decimal }
+	& hr:last-child { @apply hidden }
 }
 @screen dark { .styled-html a { @apply text-gray-100; }}
 
@@ -66,6 +67,10 @@ hr { @apply relative border border-sepia-300 }
 
 .blurry-fuck {
 	filter: blur(10px)
+}
+
+.landmark.heading {
+	display: none;
 }
 
 @tailwind utilities;

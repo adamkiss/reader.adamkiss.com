@@ -20,24 +20,31 @@ export const isValid = url => {
 }
 
 /*
-	main view or error function
+	View stuff
 */
 import ky from "ky";
 import error from "../site/error.html"
-export const showOrFail = async ({store, args}) => {
-	let newTitle
+
+export const setView = ({html, title, store}) => {
+	$app(html)
+	store.app.dispatch('setTitle', title)
+}
+export const errorView = ({err, store}) => {
+	setView({html: error, title: `Reader: Error ${err.response.status}`, store})
+	$('#error-status').innerHTML = err.response.status
+	$('#error-message').innerHTML = err.response.statusText
+}
+export const loadView = async ({func, params, store}) => {
 	try {
-		const result = await ky.post(`/.netlify/functions/${args.provider}`, {json: args}).json();
-		$app(result.html)
-		newTitle = result.title
+		const result = await ky.post(`/.netlify/functions/${func}/${func}`, { json: params }).json();
+		setView({...result, store})
 	} catch (err) {
-		$app(error)
-		$('#error-status').innerHTML = err.response.status
-		$('#error-message').innerHTML = err.response.statusText
-		newTitle = `Reader: Error ${err.response.status}`
+		errorView({err, store})
 	}
-	store.app.dispatch('setTitle',newTitle)
 	store.app.dispatch('stopLoading')
+
+	// @todo: I need to force scroll reset. why? (nanoid?)
+	window.scroll({left: 0, top: 0})
 }
 
 /*

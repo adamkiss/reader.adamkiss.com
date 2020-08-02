@@ -1,17 +1,7 @@
-import { showOrFail } from '../utils'
+import { loadView } from '../utils'
 
-export default async function ao3({ router, store, params }) {
+export default async function ao3({ store, params }) {
 	store.app.dispatch('startLoading')
 
-	if ('chapter' in params) {
-		await showOrFail({
-			store,
-			args: { provider: 'ao3', story: params.story, chapter: params.chapter }
-		})
-	} else {
-		await showOrFail({
-			store,
-			args: { provider: 'ao3', story: params.story }
-		})
-	}
+	await loadView({func: 'ao3', params, store})
 }
