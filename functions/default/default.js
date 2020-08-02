@@ -6,6 +6,7 @@ const redirects = require('./redirects')
 exports.handler = async (event, context) => {
 	try {
 		const url = event.path.slice(1)
+		console.info(url)
 
 		if (Location = redirects.find(url)) {
 			return {statusCode: 301, headers: {Location}}
