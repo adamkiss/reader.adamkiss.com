@@ -15,6 +15,7 @@
 		"@essentials/request-interval": "^1.2.0",
 		"@jbrayton/mercury-parser": "^2.2.21",
 		"delegated-events": "^1.1.2",
+		"fake-lit": "^1.0.1",
 		"got": "^11.5.1",
 		"ky": "^0.23.0",
 		"lit-html": "^1.2.1",

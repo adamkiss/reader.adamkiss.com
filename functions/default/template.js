@@ -1,4 +1,4 @@
-const html = require('../shared/fake-lit-html')
+const {html} = require('fake-lit')
 const {scrollToTop, reader} = require('../shared/components')
 
 module.exports = d => html`
