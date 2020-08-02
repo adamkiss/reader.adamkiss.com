@@ -55,7 +55,7 @@ module.exports = {
 		enabled: process.env.NODE_ENV === 'production',
 		content: [
 			'site/*.html',
-			'functions-templates/**/*.njk',
+			'functions/**/template.js',
 		],
 		options: {
 			whitelistPatterns: [/styled-html/]
