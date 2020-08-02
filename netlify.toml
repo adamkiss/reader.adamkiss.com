@@ -35,17 +35,17 @@
 
 [[redirects]]
 	from = "/hpffa/:story/:chapter"
-	to = "/.netlify/functions/hpffa/hpffa?reader&story=:story&chapter=:chapter"
+	to = "/.netlify/functions/hpffa/hpffa"
 	status = 200
 
 [[redirects]]
 	from = "/ao3/:story"
-	to = "/.netlify/functions/ao3/ao3?reader&story=:story"
+	to = "/.netlify/functions/ao3/ao3"
 	status = 200
 
 [[redirects]]
 	from = "/ao3/:story/:chapter"
-	to = "/.netlify/functions/ao3/ao3?reader&story=:story&chapter=:chapter"
+	to = "/.netlify/functions/ao3/ao3"
 	status = 200
 
 [[redirects]]
