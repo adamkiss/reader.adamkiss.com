@@ -55,6 +55,7 @@ module.exports = {
 		enabled: process.env.NODE_ENV === 'production',
 		content: [
 			'site/*.html',
+			'functions/shared/components.js',
 			'functions/**/template.js',
 		],
 		options: {
