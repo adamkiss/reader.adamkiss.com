@@ -5,7 +5,7 @@ const layout = require('../shared/layout')
 
 exports.handler = async event => {
 	try {
-		console.info(event.queryStringParameters)
+		console.info(event)
 		const parsed = await parse(event.queryStringParameters)
 		const title = parsed.title + (parsed.oneshot ? '' : `, ${parsed.currentChapter.name}`)
 		return { statusCode: 200, body: layout(title, template(parsed))}
