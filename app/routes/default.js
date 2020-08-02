@@ -1,4 +1,4 @@
-import { showOrFail } from '../utils'
+import { loadView } from '../utils'
 
 const providers = [
 	{ // Fanfiction.net
@@ -33,7 +33,7 @@ export default async function defaultRoute({router, store, params}) {
 	store.app.dispatch('startLoading')
 	let redirect
 
-	const url = params.wild
+	const url = document.location.search ? params.wild + document.location.search : params.wild
 	providers.forEach(provider => {
 		if (provider.match(url)) {
 			redirect = provider.getUrl(url)
@@ -42,10 +42,5 @@ export default async function defaultRoute({router, store, params}) {
 		}
 	})
 
-	if (!redirect) {
-		await showOrFail({
-			store,
-			args: { provider: 'default', url: url}
-		})
-	}
+	await loadView({func: 'default', params: {url}, store})
 }
