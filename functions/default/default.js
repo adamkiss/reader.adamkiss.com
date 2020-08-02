@@ -11,8 +11,6 @@ exports.handler = async (event, context) => {
 			return {statusCode: 301, headers: {Location}}
 		}
 
-		console.log(event.path)
-
 		const parsed = await parse({url})
 		const {title} = parsed
 		return { statusCode: 200, body: layout(title, template(parsed)) }
