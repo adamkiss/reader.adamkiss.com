@@ -4,17 +4,17 @@
 	functions = 'functions/'
 
 [[redirects]]
-	from = "/ffnet"
+	from = "/ffnet/"
 	to = "/"
 	status = 301
 
 [[redirects]]
-	from = "/hpffa"
+	from = "/hpffa/"
 	to = "/"
 	status = 301
 
 [[redirects]]
-	from = "/ao3"
+	from = "/ao3/"
 	to = "/"
 	status = 301
 
