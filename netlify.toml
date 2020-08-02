@@ -4,22 +4,37 @@
 	functions = 'functions/'
 
 [[redirects]]
-	from = "/ffnet/:story/:chapter?"
-	query = {reader = ":reader"}
-	to = "/.netlify/functions/:reader/:reader?story=:story&chapter=:chapter"
-	status = 200
-	force = false
+	from = "/ffnet/:story"
+	to = "/ffnet/:story/1"
+	status = 301
 
+[[redirects]]
+	from = "/ffnet/:story/:chapter"
+	to = "/.netlify/functions/ffnet/ffnet?reader&story=:story&chapter=:chapter"
+	status = 200
+
+[[redirects]]
+	from = "/hpffa/:story"
+	to = "/hpffa/:story/1"
+	status = 301
+
+[[redirects]]
+	from = "/hpffa/:story/:chapter"
+	to = "/.netlify/functions/hpffa/hpffa?reader&story=:story&chapter=:chapter"
+	status = 200
+
+[[redirects]]
+	from = "/ao3/:story"
+	to = "/.netlify/functions/ao3/ao3?reader&story=:story"
+	status = 200
+
+[[redirects]]
+	from = "/ao3/:story/:chapter"
+	to = "/.netlify/functions/ao3/ao3?reader&story=:story&chapter=:chapter"
+	status = 200
 
 [[redirects]]
 	from = "/*"
-	query = {reader = ":reader"}
-	to = "/.netlify/functions/:reader/:reader"
-	status = 200
-	force = false
-
-[[redirects]]
-	from = "/*"
-	to = "/index.html"
+	to = "/.netlify/functions/default/default"
 	status = 200
 	force = false

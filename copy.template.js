@@ -4,8 +4,7 @@ const template = [
 	`
 	const {html} = require("fake-lit")
 
-	module.exports = (title, content) => html\`
-	`,
+	module.exports = (title, content) => html\``,
 	readFileSync('./dist/index.html')
 		.toString()
 		.replace(/<title.*?\/title>/g, '<title>${title}</title>')
@@ -14,4 +13,4 @@ const template = [
 	'`'
 ].join('')
 
-writeFileSync('./functions/shared/template.js', template)
+writeFileSync('./functions/shared/layout.js', template)

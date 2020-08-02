@@ -1,8 +1,6 @@
 module.exports.getRequest = (event, requiredKey) => {
 	let req
 
-	console.log(event)
-
 	if ('reader' in event.queryStringParameters) {
 		req = {...event.queryStringParameters}
 	} else {

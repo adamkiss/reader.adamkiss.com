@@ -6,13 +6,15 @@
 	"version": "1.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "npm run start",
-		"start": "parcel site/index.html",
+		"dev": "parcel site/index.html",
+		"start": "netlify dev",
 		"build": "NODE_ENV=production parcel build site/index.html --no-source-maps",
 		"serve": "serve dist/"
 	},
 	"shell": {
-		"onBuildEnd": ["node copy.template.js"]
+		"onBuildEnd": [
+			"node copy.template.js"
+		]
 	},
 	"dependencies": {
 		"@essentials/request-interval": "^1.2.0",
@@ -24,7 +26,8 @@
 		"lit-html": "^1.2.1",
 		"navaid": "^1.1.1",
 		"storeon": "^3.0.3",
-		"swup": "^2.0.11"
+		"swup": "^2.0.11",
+		"turbolinks": "^5.2.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "^9.8.5",

@@ -1,5 +1,7 @@
+const { getRequest } = require('../shared/utils')
 const parse = require('./parser')
 const template = require('./template')
+const layout = require('../shared/layout')
 
 exports.handler = async event => {
 	try {
@@ -9,12 +11,8 @@ exports.handler = async event => {
 		}
 
 		const parsed = await parse(req)
-		const rendered = template(parsed)
 		const title = parsed.title + (parsed.oneshot ? '' : `, ${parsed.currentChapter.name}`)
-		const body = ('reader' in req)
-			? sharedTemplate(title, rendered)
-			: JSON.stringify({ title, html: rendered })
-		return { statusCode: 200, body }
+		return { statusCode: 200, body: layout(title, template(parsed)) }
 	} catch (err) {
 		console.error(err)
 		return {statusCode: 500, body: err.message || err}

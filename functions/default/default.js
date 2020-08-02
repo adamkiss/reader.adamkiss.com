@@ -1,20 +1,21 @@
 const template = require('./template.js')
 const parse = require('./parser.js')
+const layout = require('../shared/layout')
+const redirects = require('./redirects')
 
 exports.handler = async (event, context) => {
 	try {
-		// bounce errors
-		if (typeof (req = getRequest(event, 'story')) === 'function') {
-			return req()
+		const url = event.path.slice(1)
+
+		if (Location = redirects.find(url)) {
+			return {statusCode: 301, headers: {Location}}
 		}
 
-		const parsed = await parse(req)
-		const rendered = template(parsed)
+		console.log(event.path)
+
+		const parsed = await parse({url})
 		const {title} = parsed
-		const body = ('reader' in req)
-			? sharedTemplate(title, rendered)
-			: JSON.stringify({title, html: rendered })
-		return { statusCode: 200, body }
+		return { statusCode: 200, body: layout(title, template(parsed)) }
 	} catch (err) {
 		console.error(err)
 		return { statusCode: 500, body: err.message || err }
