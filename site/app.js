@@ -1,14 +1,22 @@
 import barba from '@barba/core';
 import {requestInterval, clearRequestInterval} from '@essentials/request-interval'
-import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
 import {on} from 'delegated-events'
 
+let $cursor
+
 // fancy speed
-barba.init()
-barba.hooks.before(() => loader(true))
-barba.hooks.after(() => {
-	loader(false)
-	window.scrollTo(0,0)
+barba.init({
+	views: [{
+		namespace: 'content',
+		beforeLeave() {
+			loader(true)
+		},
+		afterEnter() {
+			loader(false)
+			$cursor = document.querySelector('#cursor')
+			window.scrollTo(0,0)
+		}
+	}]
 })
 
 // fancy loader
@@ -18,14 +26,15 @@ export function loader(start = true) {
 	let position = 0
 
 	if (start) {
-		window.loader = clearRequestTimeout(requestTimeout(() => {
-			window.loader = clearRequestInterval(requestInterval(() => {
-				$loader.querySelector('.emoji').textContent = emoji[(position < emoji.length - 1) ? position++ : (position = 0)]
-			}, 250))
-			$loader.classList.remove('opacity-0')
-		}))
+		if (window.loaderInterval) return
+
+		window.loaderInterval = requestInterval(() => {
+			$loader.querySelector('.emoji').textContent = emoji[(position < emoji.length - 1) ? position++ : (position = 0)]
+		}, 250)
+		$loader.classList.remove('opacity-0')
 	} else {
-		if (typeof window.loader === 'function') window.loader()
+		if (window.loaderInterval) clearRequestInterval(window.loaderInterval)
+		window.loaderInterval = null
 		$loader.classList.add('opacity-0')
 	}
 }
@@ -55,4 +64,8 @@ on('keyup', '#welcome-url', event => {
 on('submit', '#welcome-form', event => {
 	event.preventDefault()
 	barba.go(`/${document.querySelector('#welcome-url').value}`)
+})
+document.addEventListener('scroll', ev => {
+	const posY = Math.round(window.scrollY / document.querySelector('body').scrollHeight * window.innerHeight)
+	$cursor.style.top = `${posY}px`
 })
