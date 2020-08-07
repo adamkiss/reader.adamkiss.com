@@ -3,7 +3,7 @@
 	"browserslist": [
 		"supports es6-module"
 	],
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"private": true,
 	"scripts": {
 		"dev": "parcel site/index.html",
