@@ -49,6 +49,11 @@
 	status = 200
 
 [[redirects]]
+	from = "/favicon.ico"
+	status = 404
+	force = false
+
+[[redirects]]
 	from = "/*"
 	to = "/.netlify/functions/default/default"
 	status = 200
