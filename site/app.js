@@ -66,6 +66,6 @@ on('submit', '#welcome-form', event => {
 	barba.go(`/${document.querySelector('#welcome-url').value}`)
 })
 document.addEventListener('scroll', ev => {
-	const posY = Math.round(window.scrollY / document.querySelector('body').scrollHeight * window.innerHeight)
-	$cursor.style.top = `${posY}px`
+	const posY = window.innerHeight - Math.round(window.scrollY / document.querySelector('body').scrollHeight * window.innerHeight)
+	$cursor.style.bottom = `${posY}px`
 })

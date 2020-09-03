@@ -44,6 +44,7 @@ module.exports = {
 				dark: { raw: '(prefers-color-scheme: dark)' }
 			},
 			inset: {
+				...defaultConfig.theme.spacing,
 				'12': '3rem'
 			}
 		}

@@ -9,7 +9,7 @@ html, body {
 body {scroll-behavior: smooth}
 
 .container {
-	@apply px-8 max-w-2xl mx-auto
+	@apply pl-10 pr-8 max-w-2xl mx-auto
 }
 	@screen md { .container { @apply px-16 }}
 	@screen lg { .container { @apply px-20 }}
