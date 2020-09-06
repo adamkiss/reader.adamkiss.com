@@ -21,7 +21,9 @@ module.exports = async ({ story, chapter = null }) => {
 		chapter: chapter || false,
 		title: $('h2.title').text(),
 		author: $('a[rel=author]').text(),
-		content: $('.userstuff[role="article"]').html(),
+		content: chapter === null
+			? $('[role="article"] .userstuff').html()
+			: $('.userstuff[role="article"]').html(),
 		oneshot: true,
 		prev: false,
 		next: false
