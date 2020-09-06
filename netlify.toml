@@ -50,6 +50,7 @@
 
 [[redirects]]
 	from = "/favicon.ico"
+	to = "/"
 	status = 404
 	force = false
 
