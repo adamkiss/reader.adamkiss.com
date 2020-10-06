@@ -48,7 +48,7 @@ hr { @apply relative border border-sepia-300 }
 	& pre {
 		@apply overflow-scroll p-4
 	}
-	& em, & strong { @apply font-semibold }
+	& strong { @apply font-semibold }
 	& li { @apply pt-1 ml-4 }
 	& ul li { @apply list-disc }
 	& ol li { @apply list-decimal }
